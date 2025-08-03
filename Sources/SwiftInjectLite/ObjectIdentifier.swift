@@ -6,7 +6,7 @@
 //
 import Foundation
 
-private struct ObjectIdentifier<T>: Hashable {
+struct ObjectIdentifier<T>: Hashable {
     private let key: AnyHashable
     
     init(_ type: T.Type) {
