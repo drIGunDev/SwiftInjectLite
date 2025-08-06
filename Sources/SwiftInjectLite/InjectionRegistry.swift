@@ -1,6 +1,6 @@
 //
-//  DIContainer.swift
-//  DI
+//  InjectionRegistry.swift
+//  SwiftInjectLite
 //
 //  Created by Igor Gun on 25.07.25.
 //

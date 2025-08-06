@@ -91,7 +91,6 @@ extension InjectionRegistry {
 
 - `.factory`: creates a new instance each time
 - `.singleton`: reuses a shared instance
-- Custom scopes can be implemented via `Scope` protocol
 
 ---
 
