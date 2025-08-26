@@ -14,7 +14,7 @@ Perfect for developers who want clarity, type safety, and simplicity — with ze
 Add the following dependency to your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/igor-gun/SwiftInjectLite.git", from: "1.0.0")
+.package(url: "https://github.com/drIGunDev/SwiftInjectLite.git", from: "1.0.4")
 ```
 
 Or via Xcode:
