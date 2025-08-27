@@ -9,19 +9,20 @@ import Foundation
 
 extension InjectionRegistry {
     
-    public class func instantiate<T>(_ scope: Scope<T> = .factory, factory: @escaping Factory<T>) -> T {
+    public class func instantiate<T>(_ scope: Scope = .factory, factory: @escaping Factory<T>) -> T {
         shared.instantiate(scope, factory: factory)
     }
     
-    private func instantiate<T>(_ scope: Scope<T> = .factory, factory: @escaping Factory<T>) -> T {
+    private func instantiate<T>(_ scope: Scope = .factory, factory: @escaping Factory<T>) -> T {
         lock.lock()
         defer { lock.unlock() }
         
         switch scope {
         case .factory: return factory()
-        case .singleton(let type):
-            guard let singleton = findSingleton(type) else {
-                let key = ObjectIdentifier(type)
+        case .singleton:
+            
+            guard let singleton = findSingleton(T.self) else {
+                let key = ObjectIdentifier(T.self)
                 singletons[key] = factory()
                 return singletons[key] as! T
             }

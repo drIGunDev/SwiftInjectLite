@@ -11,7 +11,7 @@ public final class InjectionRegistry {
     
     public typealias Factory<T> = @Sendable () -> T
     
-    nonisolated(unsafe) var lock: NSRecursiveLock = .init()
+    let lock: NSRecursiveLock = .init()
     
     private init() {}
     var singletons: [AnyHashable: Any] = [:]

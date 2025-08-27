@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Scope<T> {
+public enum Scope {
     case factory
-    case singleton(T.Type)
+    case singleton
 }

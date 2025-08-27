@@ -30,7 +30,7 @@ import Foundation
     
     public var projectedValue: Inject<T> { self }
     
-    private var lock: NSRecursiveLock = .init()
+    private let lock: NSRecursiveLock = .init()
     private let keyPath: KeyPath<InjectionRegistry, T>
     private var value: T?
     

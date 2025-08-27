@@ -97,7 +97,7 @@ class CircusIml: Circus {
 
 extension InjectionRegistry {
     var circus: Circus {
-        Self.instantiate(.singleton(Circus.self)) { CircusIml.init() }
+        Self.instantiate(.singleton) { CircusIml.init() }
     }
 }
 
@@ -131,6 +131,7 @@ struct Tests {
         @Inject(\.circus) var circus2
         
         #expect(circus1 === circus2)
+        #expect(circus1.animals[0].name == circus2.animals[0].name)
     }
 }
 
