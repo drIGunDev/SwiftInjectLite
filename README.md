@@ -133,7 +133,7 @@ class CircusIml: Circus {
 
 extension InjectionRegistry {
     var circus: Circus {
-        Self.instantiate(.singleton(Circus.self)) { CircusIml() }
+        Self.instantiate(.singleton) { CircusIml() }
     }
 }
 
