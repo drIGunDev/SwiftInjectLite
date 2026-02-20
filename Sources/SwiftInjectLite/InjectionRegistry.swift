@@ -16,4 +16,10 @@ public final class InjectionRegistry {
     private init() {}
     var singletons: [AnyHashable: Any] = [:]
     nonisolated(unsafe) static let shared = InjectionRegistry()
+
+    public class func resetSingletons() {
+        shared.lock.lock()
+        defer { shared.lock.unlock() }
+        shared.singletons.removeAll()
+    }
 }

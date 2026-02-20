@@ -20,22 +20,14 @@ extension InjectionRegistry {
         switch scope {
         case .factory: return factory()
         case .singleton:
-            
-            guard let singleton = findSingleton(T.self) else {
-                let key = ObjectIdentifier(T.self)
-                singletons[key] = factory()
-                return singletons[key] as! T
+            let key = TypeKey(T.self)
+            if let existing = singletons[key] as? T {
+                return existing
             }
-            
-            return singleton
+            let instance = factory()
+            singletons[key] = instance
+            return instance
         }
     }
     
-    private func findSingleton<T>(_ type: T.Type) -> T? {
-        lock.lock()
-        defer { lock.unlock() }
-        
-        let key = ObjectIdentifier(type)
-        return singletons[key] as? T
-    }
 }
