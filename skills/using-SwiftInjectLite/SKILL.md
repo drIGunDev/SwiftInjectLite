@@ -1,6 +1,7 @@
-# SwiftInjectLite — AI Agent Skill Guide
-
-> Minimal, compile-time-safe dependency injection for Swift. No reflection. KeyPath-based.
+---
+name: using-SwiftInjectLite
+description: SwiftInjectLite is minimal, compile-time-safe dependency injection for Swift. No reflection. KeyPath-based
+---
 
 ## Core API
 
